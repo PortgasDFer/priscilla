@@ -6,14 +6,44 @@ const message = encodeURIComponent('Hola, me gustaría solicitar una cotización
 const contactUrl = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${message}` : '#contacto';
 
 function Brand() {
-  return <a className="brand" href="#inicio" aria-label="PRISCILLA ATELIER, inicio"><span>PRISCILLA</span><small>A T E L I E R</small></a>;
+  return (
+    <a
+      className="brand"
+      href="#inicio"
+      aria-label="PRISCILLA ATELIER, inicio"
+    >
+      <img
+        className="brand__logo"
+        src={`${import.meta.env.BASE_URL}images/logos/Color_Horizontal.png`}
+        alt="PRISCILLA ATELIER"
+      />
+    </a>
+  );
 }
 
 function PhotoSpace({ src, label, className = '' }) {
-  return <div className={`photo-space ${className}`}>
-    <img src={src} alt="" width="1200" height="1500" loading="lazy" decoding="async" onError={e => e.currentTarget.style.display = 'none'} />
-    <span>{label}</span><small>FOTOGRAFÍA REAL DEL ATELIER POR INCORPORAR</small>
-  </div>;
+  return (
+    <div className={`photo-space ${className}`}>
+      <img
+        src={`${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`}
+        alt={label || 'PRISCILLA ATELIER'}
+        width="1200"
+        height="1500"
+        loading="eager"
+        decoding="async"
+        onError={e => {
+          e.currentTarget.style.display = 'none';
+        }}
+      />
+
+      {!src && (
+        <>
+          <span>{label}</span>
+          <small>FOTOGRAFÍA REAL DEL ATELIER POR INCORPORAR</small>
+        </>
+      )}
+    </div>
+  );
 }
 
 export default function App() {
@@ -29,13 +59,34 @@ export default function App() {
     </header>
 
     <section className="hero" aria-labelledby="hero-title">
-      <div className="meta"><span>DISEÑO · CONFECCIÓN · EXPRESIÓN</span><span>CIUDAD DE MÉXICO / MÉXICO</span></div>
-      <div className="hero__heading"><p className="eyebrow">VESTUARIO ARTÍSTICO HECHO A MEDIDA</p><h1 id="hero-title">Vestir lo<br/><em>extraordinario.</em></h1><p className="hero__lead">Diseñamos y confeccionamos vestuario artístico y accesorios para ideas que merecen ocupar el escenario.</p></div>
-      <div className="hero__visual"><div className="visual-label"><span>PRISCILLA ATELIER</span><span>01 — EXPRESIÓN SIN LÍMITES</span></div><PhotoSpace src="/images/hero-priscilla.webp" label="PA — 001" className="hero-photo"/><a className="discover" href="#proyectos">DESCUBRIR PROYECTOS <ArrowDownRight size={18}/></a></div>
-      <div className="hero__bottom"><p>IDEAS EXTRAORDINARIAS.<br/>HECHAS PARA TOMAR EL ESCENARIO.</p><a href={contactUrl}>CUÉNTANOS TU IDEA <ArrowUpRight size={15}/></a></div>
+      <div className="hero__heading">
+          <p className="eyebrow">
+            DISEÑO Y CONFECCIÓN DE VESTUARIO - CDMX
+          </p>
+          <h1 id="hero-title">Vestir lo<br/><em>extraordinario.</em></h1>
+          <p className="hero__lead">Diseñamos y confeccionamos prendas, vestuarios artísticos y accesorios a medida. Desarrollamos piezas personalizadas para artistas, proyectos creativos y clientes que buscan transformar sus ideas en creaciones únicas.</p>
+        </div>
+        <div className="hero__visual">
+        <PhotoSpace src="images/hero/priscilla-editorial.jpg" label="PA — 001" className="hero-photo"/>
+        <a className="discover" href="#proyectos">DESCUBRIR PROYECTOS <ArrowDownRight size={18}/></a>
+      </div>
+      <div className="hero__bottom"><p>Diseñamos piezas que expresan <br/>lo extraordinario.</p><a href={contactUrl}>CUÉNTANOS TU IDEA <ArrowUpRight size={15}/></a></div>
     </section>
 
-    <section className="atelier dark" id="atelier"><p className="label">01 — EL UNIVERSO DEL ATELIER</p><div className="atelier__body"><h2>No hacemos<br/>lo ordinario.</h2><div><p>Convertimos ideas en vestuario artístico y accesorios personalizados, cuidando cada decisión desde el concepto hasta la confección.</p><p>Para el escenario, la cámara, la pasarela o cualquier lugar donde una idea merezca hacerse notar.</p></div></div><div className="rule"><span>DISEÑO CON INTENCIÓN</span><span>CREACIÓN PERSONALIZADA</span></div></section>
+    <section className="atelier dark" id="atelier">
+      <p className="label">01 — EL UNIVERSO DEL ATELIER</p>
+      <div className="atelier__body">
+        <h2>No hacemos<br/>lo ordinario.</h2>
+        <div>
+          <p>Diseñamos y confeccionamos vestuario artístico, prendas y accesorios personalizados. Acompañamos cada proyecto desde la idea inicial hasta su materialización.</p>
+          <p>Para el escenario, la cámara, la pasarela o para quienes buscan expresar algo único a través de lo que visten.</p>
+        </div>
+      </div>
+      <div className="rule">
+        <span>DISEÑO CON INTENCIÓN</span>
+        <span>CREACIÓN PERSONALIZADA</span>
+      </div>
+    </section>
 
     <section className="portfolio" id="proyectos"><div className="portfolio__head"><p className="label">02 — SELECCIÓN DE TRABAJOS</p><h2>El trabajo<br/><em>habla.</em></h2><p>Cada pieza parte de una idea distinta. Aquí mostraremos proyectos reales del atelier.</p></div><div className="portfolio__grid">
       <article><PhotoSpace src="/images/proyecto-01.webp" label="01 / VESTUARIO ESCÉNICO" className="project-photo project-photo--one"/><h3>Piezas para tomar la escena</h3><small>Volumen, textura y presencia.</small></article>
