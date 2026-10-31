@@ -21,22 +21,17 @@ function Brand() {
   );
 }
 
-function PhotoSpace({ src, label, className = '' }) {
+function PhotoSpace({ src, alt, label, className = '' }) {
   return (
     <div className={`photo-space ${className}`}>
-      <img
-        src={`${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`}
-        alt={label || 'PRISCILLA ATELIER'}
-        width="1200"
-        height="1500"
-        loading="eager"
-        decoding="async"
-        onError={e => {
-          e.currentTarget.style.display = 'none';
-        }}
-      />
-
-      {!src && (
+      {src ? (
+        <img
+          src={`${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`}
+          alt={alt || label || 'PRISCILLA ATELIER'}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
         <>
           <span>{label}</span>
           <small>FOTOGRAFÍA REAL DEL ATELIER POR INCORPORAR</small>
@@ -74,7 +69,6 @@ export default function App() {
     </section>
 
     <section className="atelier dark" id="atelier">
-      <p className="label">01 — EL UNIVERSO DEL ATELIER</p>
       <div className="atelier__body">
         <h2>No hacemos<br/>lo ordinario.</h2>
         <div>
@@ -88,11 +82,24 @@ export default function App() {
       </div>
     </section>
 
-    <section className="portfolio" id="proyectos"><div className="portfolio__head"><p className="label">02 — SELECCIÓN DE TRABAJOS</p><h2>El trabajo<br/><em>habla.</em></h2><p>Cada pieza parte de una idea distinta. Aquí mostraremos proyectos reales del atelier.</p></div><div className="portfolio__grid">
-      <article><PhotoSpace src="/images/proyecto-01.webp" label="01 / VESTUARIO ESCÉNICO" className="project-photo project-photo--one"/><h3>Piezas para tomar la escena</h3><small>Volumen, textura y presencia.</small></article>
-      <article className="offset"><PhotoSpace src="/images/proyecto-02.webp" label="02 / DRAG & PERFORMANCE" className="project-photo project-photo--two"/><h3>Una expresión sin límites</h3><small>Siluetas creadas alrededor de una idea.</small></article>
-      <article className="detail"><PhotoSpace src="/images/proyecto-03.webp" label="03 / DISEÑO Y ACCESORIOS" className="project-photo project-photo--three"/><h3>El detalle también transforma</h3><small>Accesorios que completan el concepto.</small></article>
-    </div><p className="note">Los espacios de imagen son provisionales. Se sustituirán por fotografías reales y autorizadas antes de publicar.</p></section>
+    <section className="portfolio" id="proyectos">
+      <div className="portfolio__head">
+        <h2>El trabajo<br/><em>habla.</em></h2>
+        <p>Cada creación nace de una idea, toma forma a través del diseño y cobra vida en cada detalle. Una selección de proyectos que refleja el universo creativo de PRISCILLA ATELIER.</p>
+      </div>
+      
+      <div className="portfolio__grid">
+        <article>
+          <PhotoSpace src="/images/home/priscilla_atelier_vestido_negro.png"  alt="Vestido negro con aplicaciones florales bordadas a mano" label="01 / VESTUARIO ESCÉNICO" className="project-photo project-photo--one"/><h3>Piezas para tomar la escena</h3>Diseño y confección de vestuario artístico donde el volumen,la textura y los detalles dan vida a cada creación.
+        </article>
+        <article className="offset">
+          <PhotoSpace src="/images/home/priscilla_atelier_escenico_rojo.png"  alt="Vestuario rojo para performance" label="02 / DRAG & PERFORMANCE" className="project-photo project-photo--two"/><h3>Una expresión sin límites</h3>Creaciones escénicas que exploran siluetas, materiales y detalles para llevar cada concepto más allá de lo convencional.
+        </article>
+        <article className="detail">
+          <PhotoSpace src="/images/home/priscilla_atelier_accesorio.png"  alt="Accesorios de diseño para teatro" label="03 / DISEÑO Y ACCESORIOS" className="project-photo project-photo--three"/><h3>El detalle también transforma</h3>Accesorios y piezas especiales desarrollados mediante técnicas de confección, intervención textil y trabajo artesanal.
+        </article>
+      </div>
+    </section>
 
     <section className="services teal" id="servicios"><p className="label">03 — LO QUE PODEMOS CREAR</p><div className="services__head"><h2>De la idea<br/>a la <em>pieza.</em></h2><p>Un proceso personalizado para desarrollar el vestuario que imaginas.</p></div><ol>
       <li><span>01</span><div><h3>Diseño y confección</h3><p>Del concepto y la elección de materiales a la elaboración de la prenda.</p></div><ArrowUpRight/></li>
