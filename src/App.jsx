@@ -113,6 +113,70 @@ function DressCollage() {
   );
 }
 
+function RedDressCollage() {
+  const base = `${import.meta.env.BASE_URL}images/home/`;
+
+  return (
+    <div className="red-dress-collage">
+
+      <img
+        className="red-dress-collage__main"
+        src={`${base}vestuario-rojo.png`}
+        alt="Vestuario escénico rojo con flor escultórica y bordado"
+      />
+
+      <img
+        className="red-dress-collage__detail red-dress-collage__flower"
+        src={`${base}vestuario-rojo-detalle-flor.png`}
+        alt="Detalle de la flor escultórica roja"
+      />
+
+      <img
+        className="red-dress-collage__detail red-dress-collage__embroidery"
+        src={`${base}vestuario-rojo-detalle-bordado.png`}
+        alt="Detalle del bordado y las lentejuelas rojas"
+      />
+
+      <span className="red-dress-collage__label">PA — 002</span>
+      <span className="red-dress-collage__caption">VESTUARIO ESCÉNICO</span>
+      <span className="red-dress-collage__detail-label">DETALLE ARTESANAL</span>
+
+    </div>
+  );
+}
+
+function BagCollage({ src }) {
+  const base = `${import.meta.env.BASE_URL}images/home/`;
+
+  return (
+    <div className="bag-collage">
+
+      <img
+        className="bag-collage__main"
+        src={`${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`}
+        alt="Bolsa artesanal de denim con bordados dorados"
+      />
+
+      <img
+        className="bag-collage__detail bag-collage__embroidery"
+        src={`${base}bolsa-denim-detalle-bordado.png`}
+        alt="Detalle del bordado floral dorado sobre denim"
+      />
+
+      <img
+        className="bag-collage__detail bag-collage__trim"
+        src={`${base}bolsa-denim-detalle-pasamaneria.png`}
+        alt="Detalle de pasamanería, perlas y bordado"
+      />
+
+      <span className="bag-collage__label">PA — 003</span>
+      <span className="bag-collage__caption">ACCESORIOS ARTESANALES</span>
+      <span className="bag-collage__detail-label">DETALLE ARTESANAL</span>
+
+    </div>
+  );
+}
+
 function WhatsAppButton() {
   return (
     <a
@@ -188,10 +252,12 @@ export default function App() {
           <h3>Piezas para tomar la escena</h3>Diseño y confección de vestuario artístico donde el volumen,la textura y los detalles dan vida a cada creación.
         </article>
         <article className="offset">
-          <PhotoSpace src="/images/home/priscilla_atelier_escenico_rojo.png"  alt="Vestuario rojo para performance" label="02 / DRAG & PERFORMANCE" className="project-photo project-photo--two"/><h3>Una expresión sin límites</h3>Creaciones escénicas que exploran siluetas, materiales y detalles para llevar cada concepto más allá de lo convencional.
+          <RedDressCollage />
+          <h3>Una expresión sin límites</h3>Creaciones escénicas que exploran siluetas, materiales y detalles para llevar cada concepto más allá de lo convencional.
         </article>
         <article className="detail">
-          <PhotoSpace src="/images/home/priscilla_atelier_accesorio.png"  alt="Accesorios de diseño para teatro" label="03 / DISEÑO Y ACCESORIOS" className="project-photo project-photo--three"/><h3>El detalle también transforma</h3>Accesorios y piezas especiales desarrollados mediante técnicas de confección, intervención textil y trabajo artesanal.
+          <BagCollage src="/images/home/priscilla_atelier_accesorio.png" />
+          <h3>El detalle también transforma</h3>Accesorios y piezas especiales desarrollados mediante técnicas de confección, intervención textil y trabajo artesanal.
         </article>
       </div>
     </section>
