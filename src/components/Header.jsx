@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Brand() {
   return (
@@ -42,7 +43,7 @@ export default function Header() {
         className={open ? 'nav nav--open' : 'nav'}
         aria-label="Navegación principal"
       >
-        <a href={`${base}nosotros`} className="nav__active"  onClick={close}>NOSOTROS</a>
+        <Link to="/nosotros" onClick={close}>NOSOTROS</Link>
         <a href={`${base}#proyectos`} onClick={close}>PROYECTOS</a>
         <a href={`${base}#servicios`} onClick={close}>SERVICIOS</a>
         <a
