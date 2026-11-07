@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowDownRight, ArrowUpRight, Menu, X} from 'lucide-react';
+import Header from './components/Header.jsx';
 
 const whatsappNumber = ''; // Configurar número oficial: código de país + número, sin + ni espacios.
 const message = encodeURIComponent('Hola, me gustaría solicitar una cotización para un proyecto de vestuario.');
@@ -203,13 +204,7 @@ export default function App() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   return <main id="inicio">
-    <header className="header">
-      <Brand />
-      <button className="menu-button" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} aria-controls="navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-      <nav id="navigation" className={open ? 'nav nav--open' : 'nav'} aria-label="Navegación principal">
-        <a href="#atelier" onClick={close}>EL ATELIER</a><a href="#proyectos" onClick={close}>PROYECTOS</a><a href="#servicios" onClick={close}>SERVICIOS</a><a className="nav__cta" href={contactUrl} onClick={close}>COTIZAR <ArrowUpRight size={14}/></a>
-      </nav>
-    </header>
+    <Header />
 
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__heading">

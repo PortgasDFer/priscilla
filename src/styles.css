@@ -155,6 +155,78 @@ button {
 }
 
 
+/* HEADER TRANSPARENTE - NOSOTROS */
+
+.nosotros-hero {
+    position: relative;
+    min-height: 680px;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nosotros-hero .header {
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid rgb(232 226 220 / 18%);
+    position: relative;
+    z-index: 5;
+}
+
+.nosotros-hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 7%;
+}
+
+/* NAVEGACIÓN - NOSOTROS */
+
+.nosotros-hero .header {
+    color: #E8E2DC;
+}
+
+.nosotros-hero .nav {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    gap: clamp(28px, 3.5vw, 52px);
+}
+
+.nosotros-hero .nav a {
+    color: #E8E2DC;
+    transition: color 0.3s ease;
+}
+
+.nosotros-hero .nav a:hover {
+    color: #95918F;
+}
+
+.nosotros-hero .nav__cta {
+    border-bottom: 1px solid #E8E2DC;
+    padding: 12px 0;
+}
+
+.nosotros-hero .menu-button {
+    color: #E8E2DC;
+}
+
+.nosotros-hero .nav__active {
+    position: relative;
+    color: #E8E2DC;
+}
+
+.nosotros-hero .nav__active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 100%;
+    height: 2px;
+    background: #284A49;
+}
 /* ==========================================
    5. HERO
 ========================================== */
@@ -1382,5 +1454,144 @@ button {
     .footer__credit {
         text-align: left;
         margin-top: 12px;
+    }
+}
+
+
+
+/* =================================
+   NOSOTROS - HERO
+================================= */
+
+.nosotros {
+    background: #181817;
+}
+
+.nosotros-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(24, 24, 23, 0.25) 0%,
+            rgba(24, 24, 23, 0.08) 55%,
+            rgba(24, 24, 23, 0.02) 100%
+        ),
+        url('/priscilla/images/nosotros/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.nosotros-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 80px 7%;
+}
+
+.nosotros-hero__content h1 {
+    max-width: 750px;
+    margin: 0;
+
+    color: #E8E2DC;
+    font-family: var(--display);
+    font-size: clamp(3.5rem, 6.5vw, 6.5rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.nosotros-hero__line {
+    display: block;
+    width: 115px;
+    height: 4px;
+    margin: 38px 0 26px;
+
+    background: #284A49;
+}
+
+.nosotros-hero__content p {
+    margin: 0;
+
+    color: #E8E2DC;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .nosotros-hero {
+        min-height: 620px;
+        background-position: 62% center;
+    }
+
+    .nosotros-hero__content {
+        padding: 60px 7%;
+    }
+
+    .nosotros-hero__content h1 {
+        font-size: clamp(3.2rem, 11vw, 5rem);
+    }
+
+    .nosotros-hero__content p {
+        max-width: 280px;
+        font-size: 0.65rem;
+        line-height: 1.8;
+        letter-spacing: 0.2em;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nosotros-hero .header {
+        position: relative;
+        background: transparent;
+        z-index: 20;
+    }
+
+    .nosotros-hero .nav {
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        padding: 30px 7vw;
+
+        background: rgba(24, 24, 23, 0.78);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        border-bottom: 1px solid rgb(232 226 220 / 15%);
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 27px;
+    }
+
+    .nosotros-hero .nav a {
+        color: #E8E2DC;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+    }
+
+    .nosotros-hero .menu-button {
+        color: #E8E2DC;
+        position: relative;
+        z-index: 25;
+    }
+
+    .nosotros-hero__content h1 em {
+        color: #284A49;
+        font-style: normal;
     }
 }
