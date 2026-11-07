@@ -131,7 +131,7 @@ button {
     display: flex;
     align-items: center;
     gap: clamp(20px, 3vw, 48px);
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: .15em;
 }
 
@@ -1593,5 +1593,572 @@ button {
     .nosotros-hero__content h1 em {
         color: #284A49;
         font-style: normal;
+    }
+}
+
+/* =================================
+   NOSOTROS - NUESTRA HISTORIA
+================================= */
+
+.history {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: clamp(60px, 8vw, 130px);
+
+    padding: 130px 8%;
+    background: #E8E2DC;
+    color: #181817;
+}
+
+/* FOTOGRAFÍA */
+
+.history__visual {
+    position: relative;
+    min-width: 0;
+    padding-bottom: 38px;
+}
+
+.history__visual::before {
+    content: "";
+    position: absolute;
+    top: -22px;
+    left: -22px;
+    width: 42%;
+    height: 42%;
+    border-top: 1px solid #79324C;
+    border-left: 1px solid #79324C;
+    z-index: 0;
+}
+
+.history__visual img {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: 100%;
+    height: 590px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.history__caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    color: #284A49;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+}
+
+/* CONTENIDO */
+
+.history__content {
+    max-width: 560px;
+    padding: 25px 0;
+}
+
+.history__eyebrow {
+    margin: 0 0 35px;
+
+    color: #79324C;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+}
+
+.history__content h2 {
+    margin: 0;
+
+    font-family: var(--display);
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+}
+
+.history__content h2 em {
+    color: #79324C;
+    font-style: normal;
+}
+
+.history__line {
+    display: block;
+    width: 85px;
+    height: 3px;
+    margin: 38px 0;
+
+    background: #284A49;
+}
+
+.history__content > p:not(.history__eyebrow) {
+    max-width: 490px;
+    margin: 0 0 22px;
+
+    color: #595552;
+    font-size: 15px;
+    line-height: 1.9;
+    letter-spacing: 0.015em;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .history {
+        grid-template-columns: 1fr;
+        gap: 65px;
+        padding: 100px 7%;
+    }
+
+    .history__visual {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .history__visual img {
+        height: 520px;
+    }
+
+    .history__content {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 600px) {
+    .history {
+        padding: 85px 7%;
+        gap: 55px;
+    }
+
+    .history__visual {
+        padding-bottom: 32px;
+    }
+
+    .history__visual::before {
+        top: -12px;
+        left: -12px;
+    }
+
+    .history__visual img {
+        height: 390px;
+    }
+
+    .history__caption {
+        font-size: 8px;
+        letter-spacing: 0.15em;
+    }
+
+    .history__eyebrow {
+        margin-bottom: 25px;
+        font-size: 9px;
+    }
+
+    .history__content h2 {
+        font-size: clamp(3rem, 12vw, 4.2rem);
+    }
+
+    .history__line {
+        margin: 30px 0;
+    }
+
+    .history__content > p:not(.history__eyebrow) {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+}
+
+/* =================================
+   NOSOTROS - MÁS ALLÁ DE LA PRENDA
+================================= */
+
+.beyond {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1.45fr 1fr 1fr 1fr;
+    align-items: center;
+
+    padding: 48px 6.5%;
+
+    background: #451B2C;
+    color: #E8E2DC;
+}
+
+.beyond::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-image: url("/priscilla/images/logos/patron-priscilla.png");
+    background-repeat: repeat;
+    background-size: 120px;
+    background-position: center;
+
+    opacity: 0.12;
+    pointer-events: none;
+}
+/* TÍTULO */
+
+.beyond__title {
+    padding-right: 45px;
+}
+
+.beyond__title h2 {
+    margin: 0;
+
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.beyond__title span {
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin-top: 25px;
+
+    background: #E8E2DC;
+}
+
+/* PILARES */
+
+.beyond__item {
+    min-height: 100px;
+    padding: 5px 30px;
+
+    border-left: 1px solid rgb(232 226 220 / 45%);
+}
+
+.beyond__item h3 {
+    margin: 0 0 14px;
+
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.beyond__item p {
+    max-width: 220px;
+    margin: 0;
+
+    color: rgb(232 226 220 / 90%);
+    font-family: var(--display);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .beyond {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+        padding: 65px 7%;
+    }
+
+    .beyond__title {
+        padding-right: 15px;
+    }
+
+    .beyond__item {
+        padding: 5px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .beyond {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 10px;
+        padding: 55px 7%;
+    }
+
+    .beyond__title {
+        grid-column: 1 / -1;
+        padding-bottom: 10px;
+    }
+
+    .beyond__title h2 {
+        font-size: 3rem;
+    }
+
+    .beyond__item {
+        min-height: 125px;
+        padding: 5px 14px;
+    }
+
+    .beyond__item h3 {
+        font-size: 19px;
+    }
+
+    .beyond__item p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .beyond__item:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+    }
+}
+
+/* =================================
+   NOSOTROS - EL PROCESO
+================================= */
+
+.process {
+    display: grid;
+    grid-template-columns: 0.85fr 2.15fr;
+    align-items: center;
+    gap: 55px;
+
+    padding: 35px 5.5%;
+    background: #E8E2DC;
+    color: #181817;
+}
+
+.process__intro {
+    align-self: center;
+}
+
+.process__eyebrow {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+}
+
+.process__line {
+    display: block;
+    width: 75px;
+    height: 1px;
+    margin: 15px 0 22px;
+    background: #284A49;
+}
+
+.process__intro h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+}
+
+.process__intro h2 em {
+    color: #79324C;
+}
+
+.process__steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.process__step {
+    min-width: 0;
+    margin: 0;
+}
+
+.process__step img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.process__step h3 {
+    margin: 13px 0 0;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .process {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 65px 7%;
+    }
+
+    .process__intro h2 {
+        font-size: 3.3rem;
+    }
+
+    .process__steps {
+        gap: 10px;
+    }
+
+    .process__step h3 {
+        font-size: 8px;
+        letter-spacing: 0.12em;
+    }
+}
+
+@media (max-width: 480px) {
+    .process {
+        padding: 55px 6%;
+    }
+
+    .process__steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .process__step img {
+        aspect-ratio: 1.35 / 1;
+    }
+
+    .process__step h3 {
+        margin-top: 12px;
+        font-size: 10px;
+    }
+}
+
+/* =================================
+   NOSOTROS - CTA FINAL
+================================= */
+
+.final-cta {
+    position: relative;
+    min-height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 65px 8%;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgb(24 24 23 / 5%) 20%,
+            rgb(24 24 23 / 35%) 55%,
+            rgb(24 24 23 / 80%) 100%
+        ),
+        url("/priscilla/images/nosotros/bg-cta.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #E8E2DC;
+}
+
+.final-cta__content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 510px);
+}
+
+.final-cta__content h2 {
+    margin: 0;
+
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.final-cta__line {
+    display: block;
+    width: 85px;
+    height: 2px;
+    margin: 25px 0 30px;
+
+    background: #284A49;
+}
+
+.final-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 17px 28px;
+
+    border: 1px solid #E8E2DC;
+    color: #E8E2DC;
+
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+
+    transition: background 0.3s, color 0.3s;
+}
+
+.final-cta__button:hover {
+    background: #E8E2DC;
+    color: #181817;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .final-cta {
+        min-height: 440px;
+        justify-content: center;
+        padding: 65px 7%;
+
+        background-position: 38% center;
+
+        background-image:
+            linear-gradient(
+                0deg,
+                rgb(24 24 23 / 88%) 0%,
+                rgb(24 24 23 / 55%) 65%,
+                rgb(24 24 23 / 20%) 100%
+            ),
+            url("/priscilla/images/nosotros/bg-cta.png");
+    }
+
+    .final-cta__content {
+        width: 100%;
+        margin-top: 100px;
+    }
+
+    .final-cta__content h2 {
+        font-size: clamp(2.4rem, 8vw, 3.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .final-cta {
+        min-height: 420px;
+        padding: 45px 7%;
+        background-position: 35% center;
+    }
+
+    .final-cta__content {
+        margin-top: 90px;
+    }
+
+    .final-cta__content h2 {
+        font-size: 2.35rem;
+        line-height: 1.12;
+    }
+
+    .final-cta__line {
+        margin: 22px 0 25px;
+    }
+
+    .final-cta__button {
+        width: 100%;
+        padding: 16px 12px;
+        font-size: 9px;
     }
 }

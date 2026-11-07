@@ -1,26 +1,13 @@
 import { useState } from 'react';
 import { ArrowDownRight, ArrowUpRight, Menu, X} from 'lucide-react';
 import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+
 
 const whatsappNumber = ''; // Configurar número oficial: código de país + número, sin + ni espacios.
 const message = encodeURIComponent('Hola, me gustaría solicitar una cotización para un proyecto de vestuario.');
 const contactUrl = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${message}` : '#contacto';
 
-function Brand() {
-  return (
-    <a
-      className="brand"
-      href="#inicio"
-      aria-label="PRISCILLA ATELIER, inicio"
-    >
-      <img
-        className="brand__logo"
-        src={`${import.meta.env.BASE_URL}images/logos/Color_Horizontal.png`}
-        alt="PRISCILLA ATELIER"
-      />
-    </a>
-  );
-}
 
 function HeroCollage() {
   const base = `${import.meta.env.BASE_URL}images/hero/`;
@@ -265,17 +252,7 @@ export default function App() {
     </ol></section>
 
     <section className="contact" id="contacto"><p className="label">04 — TU IDEA ES EL INICIO</p><h2>¿Qué tienes<br/>en <em>mente?</em></h2><div className="contact__bottom"><p>Cuéntanos qué imaginas. Hablemos de tu proyecto y preparemos una cotización personalizada.</p><a href={contactUrl}>INICIAR UN PROYECTO <ArrowUpRight size={18}/></a></div></section>
-    <footer className="footer">  
-      <Brand/>
-      <span>CIUDAD DE MÉXICO · ENVÍOS A TODA LA REPÚBLICA</span>
-      <a href="#inicio">VOLVER ARRIBA ↑</a>
-      <small>
-        © {new Date().getFullYear()} PRISCILLA ATELIER
-      </small>
-      <span className="footer__credit">
-        Desarrollador por: <strong>AAF - Desarrollo Digital</strong>
-      </span>
-    </footer>
+    <Footer />
     <WhatsAppButton />
   </main>;
 }
