@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import App from './App.jsx';
 import Nosotros from './Nosotros.jsx';
+import Projects from './Projects.jsx';
 import './styles.css';
 
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -16,6 +17,7 @@ export function render(location = '/') {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/proyectos" element={<Projects />} />
         </Routes>
       </StaticRouter>
     </React.StrictMode>

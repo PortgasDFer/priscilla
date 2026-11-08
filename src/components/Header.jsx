@@ -44,7 +44,7 @@ export default function Header() {
         aria-label="Navegación principal"
       >
         <Link to="/nosotros" onClick={close}>NOSOTROS</Link>
-        <a href={`${base}#proyectos`} onClick={close}>PROYECTOS</a>
+        <Link to="/proyectos" onClick={close}>PROYECTOS</Link>
         <a href={`${base}#servicios`} onClick={close}>SERVICIOS</a>
         <a
           className="nav__cta"

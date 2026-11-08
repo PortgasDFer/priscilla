@@ -38,6 +38,21 @@ fs.writeFileSync(
   'utf8'
 );
 
+// Página Projects
+const proyectosDir = path.join(dist, 'proyectos');
+fs.mkdirSync(proyectosDir, { recursive: true });
+
+const proyectosHtml = html.replace(
+  '<!--app-html-->',
+  render('/proyectos')
+);
+
+fs.writeFileSync(
+  path.join(proyectosDir, 'index.html'),
+  proyectosHtml,
+  'utf8'
+)
+
 fs.rmSync(path.join(dist, 'server'), {
   recursive: true,
   force: true
@@ -46,3 +61,4 @@ fs.rmSync(path.join(dist, 'server'), {
 console.log('HTML prerenderizado correctamente:');
 console.log('- dist/index.html');
 console.log('- dist/nosotros/index.html');
+console.log('- dist/proyectos/index.html');
