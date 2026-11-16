@@ -45,7 +45,7 @@ export default function Header() {
       >
         <Link to="/nosotros" onClick={close}>NOSOTROS</Link>
         <Link to="/proyectos" onClick={close}>PROYECTOS</Link>
-        <a href={`${base}#servicios`} onClick={close}>SERVICIOS</a>
+        <Link to="/servicios" onClick={close}>SERVICIOS</Link>
         <a
           className="nav__cta"
           href={`${base}#contacto`}
